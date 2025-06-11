@@ -1,9 +1,7 @@
 // shop.js - Funcționalități de bază pentru site-ul Fleur de Rêve
 
-// Selectare butoane "Add to Cart"
 const cartButtons = document.querySelectorAll(".btn.btn-primary");
 
-// Inițializare coș din localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 cartButtons.forEach((button, index) => {
@@ -34,5 +32,3 @@ if (newsletterInput && signUpBtn) {
     }
   });
 }
-
-// Poți adăuga și o funcție pentru a vizualiza coșul sau a-l afișa într-o secțiune
