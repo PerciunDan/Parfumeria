@@ -1,0 +1,243 @@
+/* Stiluri generale */
+body {
+  font-family: "Playfair Display", serif;
+  overflow-x: hidden;
+}
+
+/* Navbar styling */
+.nav-link {
+  color: #333 !important;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  position: relative;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #6c757d !important;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #6c757d;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Carousel styling */
+.carousel {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.9); /* Ajustează valoarea (0.7 = 70% luminozitate) */
+  transition: filter 0.5s ease;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  nav ul {
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    max-height: 50vh;
+  }
+
+  .carousel-item img {
+    height: 50vh;
+  }
+
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 1rem;
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Telefoane mici (până la 575px) */
+@media (max-width: 575px) {
+  .carousel-img {
+    height: 250px;
+  }
+}
+
+/* Telefoane medii (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .carousel-img {
+    height: 350px;
+  }
+}
+
+/* Tablete (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .carousel-img {
+    height: 450px;
+  }
+}
+
+/* Laptopuri mici (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .carousel-img {
+    height: 550px;
+  }
+}
+
+/* Ecrane mari (1200px și peste) */
+@media (min-width: 1200px) {
+  .carousel-img {
+    height: 600px;
+  }
+}
+
+/* Varianta cu navbar transparent dar vizibil */
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.nav-link {
+  color: #fff !important;
+  font-weight: 500;
+}
+
+h1 {
+  color: #fff !important;
+}
+
+/* Stiluri suplimentare pentru navbar */
+.nav-link {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.nav-link:hover {
+  color: #f8f9fa !important;
+}
+
+h1 {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  color: #fff !important;
+}
+
+.btn-outline-dark {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-outline-dark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Puteti ajusta opacitatea (0.3) */
+  z-index: 1;
+}
+
+/* Asigură că conținutul carousel-ului rămâne deasupra overlay-ului întunecat */
+.carousel-caption,
+.carousel-indicators,
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 2;
+}
+
+/* Ajustează contrastul textului */
+.carousel-caption h5 {
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.img-custom {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card {
+  width: 18rem;
+}
+
+.input {
+  width: 333px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
