@@ -1,34 +1,29 @@
-// shop.js - Funcționalități de bază pentru site-ul Fleur de Rêve
+const parfumuri = [
+  { nume: "Dior Sauvage", link: "dior.html" },
+  { nume: "Bleu de Chanel", link: "chanel.html" },
+  { nume: "Acqua di Gio", link: "gio.html" },
+  { nume: "Versace Eros", link: "eros.html" },
+];
 
-const cartButtons = document.querySelectorAll(".btn.btn-primary");
+function genereazaSugestii() {
+  const input = document.getElementById("search");
+  const sugestii = document.getElementById("suggestions");
+  const valoare = input.value.toLowerCase();
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  sugestii.innerHTML = "";
 
-cartButtons.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    const product = {
-      id: index + 1,
-      name: `Parfum ${index + 1}`,
-      price: 99.99,
+  if (!valoare) return;
+
+  const rezultate = parfumuri.filter((p) =>
+    p.nume.toLowerCase().includes(valoare)
+  );
+
+  rezultate.forEach((parfum) => {
+    const div = document.createElement("div");
+    div.textContent = parfum.nume;
+    div.onclick = () => {
+      window.location.href = parfum.link; // te redirecționează
     };
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${product.name} a fost adăugat în coș!`);
-  });
-});
-
-// Validare formular newsletter (footer)
-const newsletterInput = document.querySelector("footer input");
-const signUpBtn = document.querySelector("footer button");
-
-if (newsletterInput && signUpBtn) {
-  signUpBtn.addEventListener("click", () => {
-    const email = newsletterInput.value.trim();
-    if (email && email.includes("@") && email.includes(".")) {
-      alert("Mulțumim pentru abonare!");
-      newsletterInput.value = "";
-    } else {
-      alert("Te rugăm să introduci un email valid.");
-    }
+    sugestii.appendChild(div);
   });
 }

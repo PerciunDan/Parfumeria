@@ -16,12 +16,16 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./script.js" />
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaxNstb-2P2Oswg6Ar0pERTG6kYT61rSY_API&callback=initMap"
+    ></script>
   </head>
   <body>
     <header>
       <!-- Navbar corectată -->
-      <div class="container-fluid px-0 position-sticky z-1">
+      <div class="container-fluid px-0 z-1">
         <div
           class="d-flex justify-content-between align-items-center container py-3"
         >
@@ -32,14 +36,34 @@
             <ul class="list-unstyled d-flex gap-4 mb-0">
               <li><a href="#" class="nav-link">Home</a></li>
               <li><a href="#" class="nav-link">About Us</a></li>
-              <li><a href="#" class="nav-link">Shop Online</a></li>
-              <li><a href="#" class="nav-link">Products</a></li>
+              <li><a href="#" class="nav-link">Best Products</a></li>
               <li><a href="#" class="nav-link">Blog</a></li>
-              <li><a href="#" class="nav-link">Careers</a></li>
               <li><a href="#" class="nav-link">Contact Us</a></li>
             </ul>
-            <button class="btn btn-outline-dark ms-4">Cart</button>
           </nav>
+        </div>
+      </div>
+      <div class="container">
+        <div class="d-flex flex-column position-relative">
+          <!-- aici -->
+          <h3 class="text-light text-center">FIND PERFECT PARFUME...</h3>
+          <div class="d-flex w-100 align-items-stretch position-relative">
+            <input
+              class="form-control rounded-0"
+              type="text"
+              id="search"
+              placeholder="Caută parfum..."
+              oninput="genereazaSugestii()"
+            />
+            <button
+              class="btn btn-primary rounded-0"
+              type="button"
+              style="min-width: 120px"
+            >
+              Cauta
+            </button>
+            <div id="suggestions" class="dropdown w-100"></div>
+          </div>
         </div>
       </div>
     </header>
@@ -76,6 +100,7 @@
               class="d-block w-100 carousel-img"
               alt="Flori"
             />
+
             <div class="carousel-caption d-none d-md-block">
               <h5>Colectia noastră premium</h5>
               <p>Descoperă arta parfumurilor naturale</p>
@@ -121,8 +146,8 @@
           <span class="carousel-control-next-icon"></span>
         </button>
       </div>
-      <div class="row bg-light mt-3">
-        <div class="col-lg-6">
+      <div class="row mx-auto mt-5">
+        <div class="col-lg-6 offset-lg-1">
           <img
             src="./images/top-view-expensive-fragnance-gray-background-color-perfume-gift-present-love-marriage-scent-flower.jpg"
             alt="Poza"
@@ -131,7 +156,7 @@
         </div>
         <div class="col-sm-4 d-flex flex-column justify-content-center gap-5">
           <h2>ABOUT US</h2>
-          <h5 class="tex-uppercase">Lorem ipsum dolor sit amet consectetur</h5>
+          <h5 class="text-uppercase">Lorem ipsum dolor sit amet consectetur</h5>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
             earum rerum porro sequi autem placeat ea, et blanditiis ratione eius
@@ -146,55 +171,49 @@
       </div>
 
       <div class="d-flex flex-column gap-5 container">
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-around flex-wrap">
           <div class="card">
             <img src="./images/1Card.avif" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
+            <div class="card-body d-flex justify-content-center flex-column">
+              <h5 class="card-title text-center">Card title</h5>
+              <p class="card-text text-center">
                 Some quick example text to build on the card title and make up
                 the bulk of the card’s content.
               </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
           <div class="card">
             <img src="./images/2Card.avif" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
+              <h5 class="card-title text-center">Card title</h5>
+              <p class="card-text text-center">
                 Some quick example text to build on the card title and make up
                 the bulk of the card’s content.
               </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
           <div class="card">
             <img src="./images/3Card.avif" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
+              <h5 class="card-title text-center">Card title</h5>
+              <p class="card-text text-center">
                 Some quick example text to build on the card title and make up
                 the bulk of the card’s content.
               </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
           <div class="card">
             <img src="./images/4Card.avif" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
+              <h5 class="card-title text-center">Card title</h5>
+              <p class="card-text text-center">
                 Some quick example text to build on the card title and make up
                 the bulk of the card’s content.
               </p>
-              <a href="#" class="text-decoration-none text-dark"
-                ><p>99,99 USD</p></a
-              >
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-around flex-wrap">
           <div class="card">
             <img src="./images/1Card.avif" class="card-img-top" alt="..." />
             <div class="card-body">
@@ -203,7 +222,6 @@
                 Some quick example text to build on the card title and make up
                 the bulk of the card’s content.
               </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
           <div class="card">
@@ -214,7 +232,6 @@
                 Some quick example text to build on the card title and make up
                 the bulk of the card’s content.
               </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
           <div class="card">
@@ -225,7 +242,6 @@
                 Some quick example text to build on the card title and make up
                 the bulk of the card’s content.
               </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
           <div class="card">
@@ -236,9 +252,6 @@
                 Some quick example text to build on the card title and make up
                 the bulk of the card’s content.
               </p>
-              <a href="#" class="text-decoration-none text-dark"
-                ><p>99,99 USD</p></a
-              >
             </div>
           </div>
         </div>
@@ -299,11 +312,7 @@
           </div>
           <a href="#" class="nav-link">Home</a>
           <a href="#" class="nav-link">About Us</a>
-          <a href="#" class="nav-link">Shop Online</a>
-          <a href="#" class="nav-link">Products</a>
           <a href="#" class="nav-link">Blog</a>
-          <a href="#" class="nav-link">Careers</a>
-          <a href="#" class="nav-link">Contact Us</a>
         </div>
         <div class="d-flex flex-column align-items-center">
           <div>
@@ -313,39 +322,18 @@
           <a href="#" class="nav-link">About Us</a>
           <a href="#" class="nav-link">Shop Online</a>
           <a href="#" class="nav-link">Products</a>
+          <a href="#" class="nav-link">Blog</a>
+          <a href="#" class="nav-link">Careers</a>
+          <a href="#" class="nav-link">Contact Us</a>
         </div>
         <div class="d-flex flex-column align-items-center">
           <div>
             <h3 class="text-light">FIND US ON</h3>
           </div>
-          <a href="#" class="nav-link">Home</a>
-          <a href="#" class="nav-link">About Us</a>
-          <a href="#" class="nav-link">Shop Online</a>
-          <a href="#" class="nav-link">Products</a>
-          <a href="#" class="nav-link">Blog</a>
-          <a href="#" class="nav-link">Careers</a>
-          <a href="#" class="nav-link">Contact Us</a>
-        </div>
-        <div class="d-flex flex-column">
-          <div>
-            <h3 class="text-light">NEWS & UPDATES</h3>
-          </div>
-          <p class="text-light">
-            Sign up to get the latest on sales, new releses and more...
-          </p>
-          <div class="d-flex w-100 align-items-stretch">
-            <input
-              type="text"
-              class="form-control rounded-0 rounded-start"
-              placeholder="Search..."
-            />
-            <button
-              class="btn btn-primary rounded-0 rounded-end h-100"
-              type="button"
-            >
-              Sign Up
-            </button>
-          </div>
+          <a href="#" class="nav-link">FACEBOOK</a>
+          <a href="#" class="nav-link">INSTAGRAM</a>
+          <a href="#" class="nav-link">TIKTOK</a>
+          <a href="#" class="nav-link">TWITTER</a>
         </div>
       </div>
     </footer>
@@ -356,5 +344,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
