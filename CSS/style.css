@@ -230,7 +230,7 @@ h1 {
 }
 
 .card {
-  width: 18rem;
+  box-shadow: 2px 2px 2px 2px grey;
 }
 
 #suggestions {

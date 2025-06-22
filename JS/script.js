@@ -1,5 +1,5 @@
-// Datele parfumurilor (poți să le încarci și din JSON local, dacă vrei)
-const parfumuri = [
+// ======================= 1. Date locale parfumuri ============================
+const parfumuriLocale = [
   {
     nume: "Dior Sauvage",
     link: "dior.html",
@@ -28,9 +28,51 @@ const parfumuri = [
     descriere: "Seducător și intens.",
     pret: "480 RON",
   },
+  {
+    nume: "Tom Ford Noir",
+    link: "tomford.html",
+    img: "img/tomford.jpg",
+    descriere: "Misterios și sofisticat.",
+    pret: "600 RON",
+  },
+  {
+    nume: "Calvin Klein Eternity",
+    link: "ck_eternity.html",
+    img: "img/ck_eternity.jpg",
+    descriere: "Clasic și atemporal.",
+    pret: "390 RON",
+  },
+  {
+    nume: "Gucci Guilty",
+    link: "gucci_guilty.html",
+    img: "img/gucci_guilty.jpg",
+    descriere: "Îndrăzneț și seducător.",
+    pret: "470 RON",
+  },
 ];
 
-// Funcția pentru sugestii căutare parfumuri
+// ==================== 2. Funcții pentru afișare locală ======================
+function afiseazaDetalii(parfum) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "col-md-4 mb-4"; // coloană Bootstrap
+
+  const card = document.createElement("div");
+  card.className = "card h-100 shadow";
+
+  card.innerHTML = `
+    <div class="card-body">
+      <h5 class="card-title">${parfum.title || "Fără nume"}</h5>
+      <p class="card-text">Brand: ${parfum.brand || "necunoscut"}</p>
+      <p class="card-text">Tip: ${parfum.type || "necunoscut"}</p>
+      <p class="card-text">Sex: ${parfum.sex || "necunoscut"}</p>
+    </div>
+  `;
+
+  wrapper.appendChild(card);
+  container.appendChild(wrapper);
+}
+
+// ===================== 3. Căutare locală și sugestii =========================
 function genereazaSugestii() {
   const input = document.getElementById("search");
   const sugestii = document.getElementById("suggestions");
@@ -40,13 +82,14 @@ function genereazaSugestii() {
 
   if (!valoare) return;
 
-  const rezultate = parfumuri.filter((p) =>
+  const rezultate = parfumuriLocale.filter((p) =>
     p.nume.toLowerCase().includes(valoare)
   );
 
   rezultate.forEach((parfum) => {
     const div = document.createElement("div");
     div.textContent = parfum.nume;
+    div.classList.add("dropdown-item");
     div.onclick = () => {
       window.location.href = parfum.link;
     };
@@ -54,50 +97,7 @@ function genereazaSugestii() {
   });
 }
 
-// Funcția pentru afișarea parfumurilor (dacă vrei să încarci din JSON poți apela afiseazaParfumuri după fetch)
-function afiseazaParfumuri(parfumuri) {
-  const container = document.getElementById("lista-parfumuri");
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  parfumuri.forEach((p) => {
-    const card = document.createElement("div");
-    card.className = "card mb-3";
-    card.innerHTML = `
-      <img src="${p.img}" class="card-img-top" alt="${p.nume}">
-      <div class="card-body">
-        <h5 class="card-title">${p.nume}</h5>
-        <p class="card-text">${p.descriere}</p>
-        <p class="card-text"><strong>${p.pret}</strong></p>
-      </div>
-    `;
-    container.appendChild(card);
-  });
-}
-
-// Încarcă datele din JSON local (opțional)
-fetch("./data/parfumuri.json")
-  .then((res) => {
-    if (!res.ok) throw new Error("Nu s-a putut încărca JSON-ul parfumurilor");
-    return res.json();
-  })
-  .then((parfumuri) => afiseazaParfumuri(parfumuri))
-  .catch((err) => console.error(err));
-
-// Scroll lin la secțiunea contact (dacă există)
-const navContact = document.getElementById("navContact");
-if (navContact) {
-  navContact.addEventListener("click", (event) => {
-    event.preventDefault();
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-}
-
-// Generare navbar dinamic
+// ========================= 4. Navbar dinamic ================================
 const navItems = [
   { name: "Home", href: "/INDEX/Home.html" },
   { name: "About Us", href: "/INDEX/About.html" },
@@ -106,7 +106,6 @@ const navItems = [
   { name: "Contact Us", href: "/INDEX/Contact Us.html" },
 ];
 
-// Construim navbar dinamic în <ul id="navbar">
 const navbar = document.getElementById("navbar");
 
 if (navbar) {
@@ -129,3 +128,19 @@ if (navbar) {
     navbar.appendChild(li);
   });
 }
+
+// ====================== 5. Scroll lin la contact ============================
+const navContact = document.getElementById("navContact");
+if (navContact) {
+  navContact.addEventListener("click", (event) => {
+    event.preventDefault();
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
+
+// ======================= 7. Căutare API externă ============================
+
+// =================== 8. Afișare parfumuri din JSON (opțional) ==============
