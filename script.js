@@ -99,11 +99,11 @@ function genereazaSugestii() {
 
 // ========================= 4. Navbar dinamic ================================
 const navItems = [
-  { name: "Home", href: "/INDEX/Home.html" },
-  { name: "About Us", href: "/INDEX/About.html" },
-  { name: "Best Products", href: "/INDEX/Products.html" },
-  { name: "Blog", href: "/INDEX/Blog.html" },
-  { name: "Contact Us", href: "/INDEX/Contact Us.html" },
+  { name: "Home", href: "/index.html" },
+  { name: "About Us", href: "/about.html" },
+  { name: "Best Products", href: "/bestproduct.html" },
+  { name: "Blog", href: "/blog.html" },
+  { name: "Contact Us", href: "/contact.html" },
 ];
 
 const navbar = document.getElementById("navbar");
