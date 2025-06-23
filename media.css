@@ -1,0 +1,66 @@
+/* Telefoane mici (până la 575px) */
+@media (max-width: 575px) {
+  .carousel-img {
+    height: 250px;
+  }
+}
+
+/* Telefoane medii (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .carousel-img {
+    height: 350px;
+  }
+}
+
+/* Tablete (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .carousel-img {
+    height: 450px;
+  }
+}
+
+/* Laptopuri mici (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .carousel-img {
+    height: 550px;
+  }
+}
+
+/* Ecrane mari (1200px și peste) */
+@media (min-width: 1200px) {
+  .carousel-img {
+    height: 600px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  nav ul {
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    max-height: 50vh;
+  }
+
+  .carousel-item img {
+    height: 50vh;
+  }
+
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 1rem;
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
