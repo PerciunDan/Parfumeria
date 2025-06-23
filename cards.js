@@ -9,7 +9,7 @@ const cardData = [
   {
     nume: "Bleu de Chanel",
     link: "chanel.html",
-    img: "/images/2Card.avif",
+    img: "/images/bottle-parfum-table.jpg",
     descriere: "Un parfum proaspăt și elegant.",
     pret: "480 RON",
   },
@@ -30,21 +30,21 @@ const cardData = [
   {
     nume: "Dior Sauvage",
     link: "dior.html",
-    img: "/images/1Card.avif",
+    img: "/images/still-life-beauty-products-based-regenerative-agriculture.jpg",
     descriere: "Parfum puternic și masculin.",
     pret: "450 RON",
   },
   {
     nume: "Bleu de Chanel",
     link: "chanel.html",
-    img: "/images/2Card.avif",
+    img: "/images/top-view-male-self-care-produc.jpg",
     descriere: "Un parfum proaspăt și elegant.",
     pret: "480 RON",
   },
   {
     nume: "Acqua di Gio",
     link: "gio.html",
-    img: "/images/3Card.avif",
+    img: "/images/top-view-male-self-care-product.jpg",
     descriere: "Aromă revigorantă pentru bărbați.",
     pret: "390 RON",
   },
